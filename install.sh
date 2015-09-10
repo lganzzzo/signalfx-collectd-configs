@@ -151,7 +151,7 @@ install_config(){
 
 check_for_aws() {
     printf "Checking to see if this box is in AWS: "
-    DOC="$(curl -s --connect-timeout 1 http://169.254.169.254/latest/dynamic/instance-identity/document)"
+    DOC="$(curl -s --connect-timeout 1 http://169.254.169.254/2014-11-05/dynamic/instance-identity/document)"
     status=$?
     if [ $status -eq 0 ]; then
         eval `echo "$DOC" | awk -F: '
